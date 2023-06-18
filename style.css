@@ -1,0 +1,312 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@400;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Catamaran', sans-serif;/* 亦可從串接Import後面的family後面去找 */
+    color: #fff;
+    line-height: 1;
+}
+img{
+    display: block;
+    width: 100%;
+}
+a.btn{/* a後面不能有空格 因為是a裡面的btn標籤 */
+    color: rgb(75, 75, 75);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 800;
+    display: inline-block;/* 跟字一樣寬 */
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    margin: 1rem 0;
+    background:white;
+    border: transparent 2px solid;/* 滑上去會佔據一個2像素透明邊框 */
+    transition: .4s;/* 寫在本體身上，點擊跟滑動離開時都會有動畫 */
+}
+a.btn:hover{
+    border: white 2px solid;
+    color: white;
+    background-color:#302f2f;
+    /* transition: .4s; 寫在hover身上 就只有hover的時候才會有動畫*/
+}
+/* banner區 */
+#banner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image:url('./images/bg-pattern-logos.png'), linear-gradient(#e70112 15% ,  #b20722 75%);
+    overflow: hidden;
+}
+#banner .row{
+    display: flex;
+    width: 80%;
+
+}
+#banner .col:first-child{
+    width: 30rem;/* 為了要讓mario的o可以跟下面的內文齊行(用%無法去符合rwd) */
+}
+#banner h2 span{
+    display: block;
+    font-weight: 900;
+    line-height: 1.05;
+}
+#banner h2 span:first-child{
+    font-size:1.75rem;
+    letter-spacing: 0.05rem;
+}
+#banner h2 span:last-child{
+    font-size: 11rem;
+    letter-spacing: .18rem;
+}
+#banner p{
+    font-size: 1.5rem;
+    letter-spacing: .05rem;
+    line-height: 1.3;   
+}
+/* 圖片區 */
+#banner .col:last-child{
+    position: relative;
+    width: 100%;
+}
+#banner picture{
+    position: absolute;
+}
+/* banner1 */
+.mario1 {
+    width: 75%;
+    animation: mario1 12s both ease-in-out infinite;
+    /* 每個banner 3s 停留1s 共4s* 3個banner = 12s */
+}
+@keyframes mario1{
+    0%{top: 100vh;left: 10%;opacity: 0;}/* 視窗高度外 */
+    10%{top: -15vh;left: 10%;opacity: 1;}/* 顯示位置/淡入*/
+    20%{top: -15vh;left: 10%;opacity: 1;}/* 停留顯示 */
+    30%{top: 100vh;left: 10%;opacity: 0;}/* 消失視窗外/淡出 */
+    100%{top: 100vh;left: 10%;opacity: 0;}/* 停留消失 */
+    }
+
+.luigi {/* 寬度用vh 高度用% */
+    width: 40%;
+    animation: luigi 12s .35s both ease-in-out infinite;
+}
+@keyframes luigi{
+    0% { opacity: 0; right: -10%; top: 100vh;} 
+    10% { opacity: 1; right: -10%; top: 5vh;}
+    20% {opacity: 1; right: -10%; top: 5vh;}
+    30% {opacity: 0; right: -10%; top: 100vh;}
+    100% {opacity: 0; right: -10%; top: 100vh;}
+}
+.brick {
+    width: 80%;
+    animation: brick 12s .45s both ease-in-out infinite;
+}
+@keyframes brick{
+    0%{opacity: 0; top: -12vh;right: -105%;}
+    10%{opacity: 1; top: -12vh;right: -25%;}
+    20%{opacity: 1; top: -12vh;right: -25%;}
+    30%{opacity: 0; top: -12vh;right: -105%;}
+    100%{opacity: 0; top: -12vh;right: -105%;}
+}
+/* banner2 */
+.mario2 {
+    width: 70%;
+    animation: mario2 12s 4s ease-in-out infinite;/* 要等第一個banner跑完 所以第二格馬力歐delay 4秒 */
+}
+@keyframes mario2{
+    0%{opacity: 0;left: 6%; top: 100vh;}
+    10%{opacity:1 ;left: 6%;top: -10vh;}
+    20%{opacity:1 ;left: 6%;top: -10vh;}
+    30%{opacity:0 ;left: 6%;top: 100vh;}
+    100%{opacity:0 ;left: 6%;top: 100vh;}
+}
+.peach {
+    width: 40%;
+    animation: peach 12s 4.35s both ease-in-out infinite;
+}
+@keyframes peach{
+    0%{opacity:0 ;right: 5%;top: 100vh;}
+    10%{opacity:1 ;right: 5%;top: 5vh;}
+    20%{opacity:1 ;right: 5%;top: 5vh;}
+    30%{opacity:0 ;right: 5%;top: 100vh;}
+    100%{opacity:0 ;right: 5%;top: 100vh;}
+}
+.pipe {
+    width: 30%;
+    animation: pipe 12s 4.45s both ease-in-out infinite;
+}
+@keyframes pipe{
+    0%{opacity: 0;right: -20%;top: 100vh;}
+    10%{opacity: 1;right: -20%;top: 15vh;}
+    20%{opacity: 1;right: -20%;top: 15vh;}
+    30%{opacity: 0;right: -20%;top: 100vh;}
+    100%{opacity: 0;right: -20%;top: 100vh;}
+}
+/* banner3 */
+.mario3{
+    width: 90%;
+    animation: mario3 12s 8s both ease-in-out infinite;
+}
+@keyframes mario3 {
+    0%{opacity: 0;left: 7%;top: 100vh;}
+    10%{opacity: 1;left: 7%;top: 0;}
+    20%{opacity: 1;left: 7%;top: 0;}
+    30%{opacity: 0;left: 7%;top: 100vh;}
+    100%{opacity: 0;left: 7%;top: 100vh;}
+}
+.toad {
+    width: 30%;
+    animation: toad 12s 8.35s both ease-in-out infinite;
+}
+@keyframes toad{
+    0%{opacity: 0;right: -3%;top: 100vh;}
+    10%{opacity: 1;right: -3%;top: 20vh;}
+    20%{opacity: 1;right: -3%;top: 20vh;}
+    30%{opacity: 0;right: -3%;top: 100vh;}
+    100%{opacity: 0;right: -3%;top: 100vh;}
+}
+.star {
+    width: 50%;
+    animation: star 12s 8.45s both ease-in-out infinite;
+}
+@keyframes star{
+    0%{opacity: 0;top: -10vh;right: -105%;}
+    10%{opacity: 1;top: -10vh;right: -15%;}
+    20%{opacity: 1;top: -10vh;right: -15%;}
+    30%{opacity: 0;top: -10vh;right: -105%;}
+    100%{opacity: 0;top: -10vh;right: -105%;}
+}
+
+#banner::before{/* 裝飾用的偽元素 */
+    content:'';
+    position: absolute;
+    left: 0;
+    bottom:0;
+    background-color: #e70112;
+    width: 100%;
+    height: 200px;
+    z-index: 1;
+    clip-path: polygon(100% 0,0 100%,100% 100%);
+    /* 多邊形:左上角，右上角，右下角，左下角; */
+    /* 預設起點為左上角 x0 y0 */
+    /* 三點: 上--左下--右下 */
+    /* 四點:左上--右上--右下--左下 */
+}
+/* main */
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-1 {
+    font-size: 3.5rem;
+    margin-bottom: 5vh;
+}
+.list-box{
+    display: flex;
+}
+.card-item{
+    position: relative;
+    /* height: 65vh; */
+    padding: 25px;
+    border-radius: 25px;
+    box-shadow: 2px 2px 5px #531c1c;
+    background-image:
+    repeating-linear-gradient(
+        -45deg,
+        #666666 0, 
+        #302f2f 6px,
+        #2a2929 0,
+        #3b3b3b 20px
+    );
+}
+/* news */
+#news{
+    background-color: #e70112;         
+}
+#news .list-box{
+    width: 75%;
+}
+#news .card-item{
+    margin: 0 40px;
+}
+
+#news .card-item .role{
+    position: absolute;
+    top: 0;
+    left: 24px;
+}
+#news .scenes {
+    height: 35vh;
+    box-shadow: 0 0 20px -5px #000;/* -5~20這段卡片會顯示陰影出來 */
+    border-radius: 15px;
+    overflow: hidden;
+    transform-origin: bottom;/* 寫在爸爸身上 */
+    transition: 1.5s;/* 寫在本體身上 */
+}
+
+#news .scenes img{
+    height: 100%;
+    object-fit: cover;
+}
+#news .card-item:hover .scenes {
+    transform: perspective(700px) rotateX(30deg) skewX(-20deg);
+}
+#news .role{
+    width:80%;
+    position: absolute;
+    top: -4vh;
+    left: 10%;
+    transition: 1s;
+}
+#news .card-item:hover .role{
+    transform: scale(1.12);
+}
+/* 文案區 */
+.title-2{
+    font-size: 1.7rem;
+    margin: 1.5vh 0;
+}
+#news .content{
+    position: relative;
+    margin-top: 5vh 0 3rem;
+}
+#news .content div{
+    font-size: 1.2rem;
+}
+#news .content p{
+    position: absolute;
+    left: 0;
+    top: 2.8rem;
+    letter-spacing: .05rem;
+    line-height: 1.1;
+    /* 多行省略 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient:vertical ;
+    -webkit-line-clamp:2 ;
+    opacity: 0;
+    transition: 1s;
+}
+#new .card-item:hover .content p{
+    transform: translateY(3.5rem);
+    opacity: 1;
+}
+
+
+footer{
+    background-color: #e70112;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+}
